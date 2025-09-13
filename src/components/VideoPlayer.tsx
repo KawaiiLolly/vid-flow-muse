@@ -186,34 +186,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
       {/* Video Info */}
       <div className="p-6">
-        <h1 className="text-2xl font-bold text-foreground mb-2">{video.title}</h1>
-        <div className="flex items-center justify-between text-muted-foreground mb-4">
-          <div>
-            <span className="font-medium text-foreground">{video.uploader}</span>
-            <span className="mx-2">•</span>
-            <span>{video.viewCount.toLocaleString()} views</span>
-            <span className="mx-2">•</span>
-            <span>{new Date(video.uploadDate).toLocaleDateString()}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Heart className={`h-4 w-4 ${video.isLiked ? 'text-red-400 fill-current' : ''}`} />
-            <span>{video.likes?.toLocaleString()}</span>
-          </div>
-        </div>
+        <h1 className="text-2xl font-bold text-foreground mb-4">{video.title}</h1>
         {video.description && (
           <p className="text-muted-foreground leading-relaxed">{video.description}</p>
-        )}
-        {video.tags && (
-          <div className="flex flex-wrap gap-2 mt-4">
-            {video.tags.map(tag => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm"
-              >
-                #{tag}
-              </span>
-            ))}
-          </div>
         )}
       </div>
     </Card>

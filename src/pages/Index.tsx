@@ -8,7 +8,7 @@ import { SearchBar } from '../components/SearchBar';
 import { HistoryDrawer } from '../components/HistoryDrawer';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
-import { Play, Grid3X3 } from 'lucide-react';
+import { Play, Grid3X3, Menu, ArrowLeft } from 'lucide-react';
 
 const Index = () => {
   const [videos, setVideos] = useState<Video[]>(sampleVideos);
@@ -63,6 +63,12 @@ const Index = () => {
     ));
   };
 
+  const handleHomeNavigation = () => {
+    setSelectedVideo(null);
+    setPreviousVideo(null);
+    setSearchQuery('');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -70,13 +76,33 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="bg-hero-gradient rounded-lg p-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleHomeNavigation}
+                className="p-2"
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+              <div className="bg-hero-gradient rounded-lg p-2 cursor-pointer" onClick={handleHomeNavigation}>
                 <Play className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-xl font-bold bg-accent-gradient bg-clip-text text-transparent">
                 VideoStream
               </h1>
             </div>
+            
+            
+            {selectedVideo && (
+              <Button
+                variant="outline"
+                onClick={handleBack}
+                className="gap-2"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back
+              </Button>
+            )}
             
             <div className="flex items-center gap-4">
               <SearchBar

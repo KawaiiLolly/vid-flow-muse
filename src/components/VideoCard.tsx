@@ -73,12 +73,6 @@ export const VideoCard: React.FC<VideoCardProps> = ({
         <h3 className="font-semibold text-foreground text-sm line-clamp-2 mb-1 group-hover:text-primary transition-colors">
           {video.title}
         </h3>
-        <p className="text-muted-foreground text-xs mb-1">{video.uploader}</p>
-        <div className="flex items-center text-xs text-muted-foreground">
-          <span>{video.viewCount.toLocaleString()} views</span>
-          <span className="mx-1">•</span>
-          <span>{new Date(video.uploadDate).toLocaleDateString()}</span>
-        </div>
       </CardContent>
     </Card>
   );

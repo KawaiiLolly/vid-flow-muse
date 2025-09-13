@@ -71,7 +71,7 @@ export const HistoryDrawer: React.FC<HistoryDrawerProps> = ({
                     <X className="h-3 w-3" />
                   </Button>
                   <div className="text-xs text-muted-foreground mt-1">
-                    Watched {new Date(item.watchedAt).toLocaleDateString()}
+                    {new Date(item.watchedAt).toLocaleDateString()}
                   </div>
                 </div>
               ))}
